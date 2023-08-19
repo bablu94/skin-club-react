@@ -16,6 +16,9 @@
   src: url("./assets/fonts/TradeGothicLTStd-BoldExt.ttf");
 }
 
+.swal2-container{
+  @apply font-tradeGothic;
+}
 
 body {
   @apply font-sangBleu;
@@ -24,10 +27,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input {
-  &::placeholder {
-    @apply font-ptSerif text-[14px];
-  }
+input::placeholder {
+  @apply font-ptSerif text-[14px];
 }
 
 code {

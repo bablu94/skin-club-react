@@ -1,37 +1,7 @@
 export const grayMap = [
   {
-    "featureType": "all",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "saturation": 36
-      },
-      {
-        "color": "#333333"
-      },
-      {
-        "lightness": 40
-      }
-    ]
-  },
-  {
-    "featureType": "all",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "visibility": "on"
-      },
-      {
-        "color": "#ffffff"
-      },
-      {
-        "lightness": 16
-      }
-    ]
-  },
-  {
-    "featureType": "all",
-    "elementType": "labels.icon",
+    "featureType": "administrative",
+    "elementType": "geometry",
     "stylers": [
       {
         "visibility": "off"
@@ -40,6 +10,78 @@ export const grayMap = [
   },
   {
     "featureType": "administrative",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#6f6f6f"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "weight": "2.91"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
     "elementType": "geometry",
     "stylers": [
       {
@@ -48,32 +90,29 @@ export const grayMap = [
     ]
   },
   {
-    "featureType": "administrative",
+    "featureType": "administrative.neighborhood",
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#fefefe"
-      },
-      {
-        "lightness": 20
+        "visibility": "on"
       }
     ]
   },
   {
-    "featureType": "administrative",
-    "elementType": "geometry.stroke",
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry",
     "stylers": [
       {
-        "color": "#fefefe"
-      },
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "all",
+    "stylers": [
       {
-        "lightness": 17
-      },
-      {
-        "weight": 1.2
-      },
-      {
-        "visibility": "on"
+        "color": "#f2f2f2"
       }
     ]
   },
@@ -82,42 +121,48 @@ export const grayMap = [
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#f5f5f5"
-      },
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry",
+    "stylers": [
       {
-        "lightness": 20
-      },
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
       {
         "visibility": "on"
       }
     ]
   },
   {
+    "featureType": "landscape.natural.landcover",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural.terrain",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
     "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#f5f5f5"
-      },
-      {
-        "lightness": 21
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dedede"
-      },
-      {
-        "lightness": 21
-      }
-    ]
-  },
-  {
-    "featureType": "road",
     "elementType": "all",
     "stylers": [
       {
@@ -126,11 +171,41 @@ export const grayMap = [
     ]
   },
   {
-    "featureType": "road",
+    "featureType": "poi",
     "elementType": "geometry",
     "stylers": [
       {
         "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "all",
+    "stylers": [
+      {
+        "saturation": -100
+      },
+      {
+        "lightness": 45
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "all",
+    "stylers": [
+      {
+        "visibility": "simplified"
       }
     ]
   },
@@ -145,28 +220,19 @@ export const grayMap = [
   },
   {
     "featureType": "road.highway",
-    "elementType": "geometry.fill",
+    "elementType": "labels.text",
     "stylers": [
       {
-        "color": "#e0e0e0"
-      },
-      {
-        "lightness": 17
+        "visibility": "off"
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
     "stylers": [
       {
-        "color": "#ffffff"
-      },
-      {
-        "lightness": 29
-      },
-      {
-        "weight": 0.2
+        "visibility": "on"
       }
     ]
   },
@@ -175,10 +241,16 @@ export const grayMap = [
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#ffffff"
-      },
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.icon",
+    "stylers": [
       {
-        "lightness": 18
+        "visibility": "off"
       }
     ]
   },
@@ -187,11 +259,14 @@ export const grayMap = [
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#ffffff"
-      },
-      {
-        "lightness": 16
-      },
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "all",
+    "stylers": [
       {
         "visibility": "off"
       }
@@ -202,25 +277,25 @@ export const grayMap = [
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#f2f2f2"
-      },
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text",
+    "stylers": [
       {
-        "lightness": 19
-      },
-      {
-        "visibility": "off"
+        "visibility": "on"
       }
     ]
   },
   {
     "featureType": "water",
-    "elementType": "geometry",
+    "elementType": "all",
     "stylers": [
       {
-        "color": "#c7c7c7"
-      },
-      {
-        "lightness": 17
+        "color": "#cecece"
       },
       {
         "visibility": "on"

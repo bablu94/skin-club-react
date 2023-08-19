@@ -1,5 +1,11 @@
+
+.float-bottom {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .custom-calender {
   margin-top: 12px;
+
   .rdp {
     margin: 0 !important;
     .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {

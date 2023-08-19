@@ -10,6 +10,8 @@ import {ChooseStudio} from "./component/Pages/ChooseStudio";
 import {Consultation} from "./component/Pages/Consultation";
 import {EmailAndPhone} from "./component/Pages/EmailAndPhone";
 import {VerificationCode} from "./component/Pages/VerificationCode";
+import {WhatTreatment} from "./component/Pages/WhatTreatment";
+import {WhichDoctor} from "./component/Pages/WhichDoctor";
 
 
 const App = () => {
@@ -17,18 +19,42 @@ const App = () => {
     const [steps, setSteps] = useState(0);
     const [state, setState] = useState({
         cvc: '',
-        dateTime: '',
-        userEmail: '',
+        staffId: '',
+        fromTime: '',
         userPhone: '',
+        userEmail: '',
+        serviceId: '',
+        staffList: [],
         expiration: '',
         originalTime: '',
         userLastName: '',
         userFirstName: '',
-        typeOfService: '',
+        studioLocation: '',
         selectedStudio: '',
         creditCardNumber: '',
         verificationCode: '',
     });
+
+
+    const reset = () => {
+        setSteps(0);
+        setState({
+            cvc: '',
+            staffId: '',
+            fromTime: '',
+            userPhone: '',
+            userEmail: '',
+            serviceId: '',
+            staffList: [],
+            expiration: '',
+            originalTime: '',
+            userLastName: '',
+            userFirstName: '',
+            selectedStudio: '',
+            creditCardNumber: '',
+            verificationCode: '',
+        });
+    }
 
     const handleState = (name, value) => {
         setState((prevState) => ({
@@ -49,12 +75,14 @@ const App = () => {
                 return <VerificationCode state={state} setSteps={setSteps} handleState={handleState} />
             case 3:
                 return <HowCanWeHelp state={state} setSteps={setSteps} handleState={handleState} />
+            // case 4:
+            //     return <WhichDoctor state={state} setSteps={setSteps} handleState={handleState} />
             case 4:
                 return <Consultation state={state} setSteps={setSteps} handleState={handleState} />
             case 5:
                 return <EnterDetails state={state} setSteps={setSteps} handleState={handleState} />
             case 6:
-                return <PaymentInfo state={state} setSteps={setSteps} handleState={handleState} />
+                return <PaymentInfo reset={reset} state={state} setSteps={setSteps} handleState={handleState} />
             default:
                 return <ChooseStudio state={state} setSteps={setSteps} handleState={handleState} />
         }
