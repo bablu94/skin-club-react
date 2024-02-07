@@ -12,7 +12,7 @@ import {Spinner} from "../../Atoms/Spinner";
 import CloseIcon from '../../../assets/icon/close.svg';
 import ScrollDown from '../../../assets/images/move.png';
 
-export const Consultation = ({setSteps, handleState, state}) => {
+export const Consultation = ({handleState, state}) => {
     let selectedDate = '';
     const [morning, setMorning] = useState([]);
     const [evening, setEvening] = useState([]);
@@ -20,7 +20,7 @@ export const Consultation = ({setSteps, handleState, state}) => {
     const [schedule, setSchedule] = useState([]);
     const [afterNoon, setAfterNoon] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [doctorName, setDoctorName] = useState('');
+    const [doctorName, setDoctorName] = useState(null);
     const [doctorsInfo, setDoctorsInfo] = useState([]);
     const [showDoctorList, setShowDoctorList] = useState(false);
     const apiTime = state.originalTime !== '' ? format(state.originalTime, 'dd-LLL-Y') : '';
@@ -99,7 +99,8 @@ export const Consultation = ({setSteps, handleState, state}) => {
         if (morning.length) {
             return morning.map((item, index) => (
                 <Button className={'py-[14px]'} key={index}
-                        handleClick={() => {setSteps(5); handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
+                        handleClick={() => {
+                            window.location.href = '#enter-details'; handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
             ))
         } else {
             return 'No morning appointments are available on this date.';
@@ -110,7 +111,8 @@ export const Consultation = ({setSteps, handleState, state}) => {
         if (afterNoon.length) {
             return afterNoon.map((item, index) => (
                 <Button className={'py-[14px]'} key={index}
-                        handleClick={() => {setSteps(5); handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
+                        handleClick={() => {
+                            window.location.href = '#enter-details'; handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
             ))
         } else {
             return 'No afternoon appointments are available on this date.';
@@ -120,7 +122,8 @@ export const Consultation = ({setSteps, handleState, state}) => {
         if (evening.length) {
             return evening.map((item, index) => (
                 <Button className={'py-[14px]'} key={index}
-                        handleClick={() => {setSteps(5); handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
+                        handleClick={() => {
+                            window.location.href = '#enter-details'; handleState('fromTime', apiTime + ' ' + item)}}>{item}</Button>
             ))
         } else {
             return 'No evening appointments are available on this date.'
@@ -138,7 +141,7 @@ export const Consultation = ({setSteps, handleState, state}) => {
             <div className="gap-4 lg:flex hidden">
                 <button onClick={() => {setShowDoctorList(!showDoctorList)}}
                     className={'bg-[#FFF1DA] px-[11px] py-[12px] rounded-[4px] text-[12px] relative cursor-pointer'}>
-                    {doctorName}
+                    {doctorName ?? 'Select provider'}
                     {showDoctorList ? <div className="absolute bg-white rounded shadow w-80 h-max z-10 top-12 left-0">
                         <div className="flex font-tradeGothic font-bold justify-between text-[16px] p-3 pb-0">
                             PROVIDER
@@ -180,10 +183,11 @@ export const Consultation = ({setSteps, handleState, state}) => {
                 />
             </div>
 
+            <div className={'text-xs mt-4 text-gray-500 lg:hidden flex px-[20px]'}>Choose Providers</div>
             <div className="gap-4 lg:hidden flex mt-[12px] lg:px-[0] px-[20px]" >
                 <button onClick={() => {setShowDoctorList(!showDoctorList)}}
                         className={'bg-[#FFF1DA] px-[11px] font-[600] py-[12px] rounded-[4px] text-[12px] relative'}>
-                    {doctorName}
+                    {doctorName ?? "Select provider"}
                     {showDoctorList ? <div className="absolute bg-white rounded shadow w-80 h-max z-10 top-12 left-0">
                         <div className="flex font-tradeGothic font-bold justify-between text-[16px] p-3 pb-0">
                             PROVIDER

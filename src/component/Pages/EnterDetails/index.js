@@ -3,7 +3,7 @@ import {Input} from "../../Atoms/Input";
 import {Button} from "../../Atoms/Button";
 import {useState} from "react";
 
-export const EnterDetails = ({setSteps, handleState, state}) => {
+export const EnterDetails = ({handleState, state}) => {
     const [userFirstNameError, setUserFirstNameError] = useState(false);
     const [userLastNameError, setUserLastNameError] = useState(false);
     const [userEmailError, setUserEmailError] = useState(false);
@@ -28,7 +28,7 @@ export const EnterDetails = ({setSteps, handleState, state}) => {
             setUserLastNameError(false);
             setUserEmailError(false);
             setUserPhoneError(false);
-            setSteps(6);
+            window.location.href = '#payment';
         }
     }
 

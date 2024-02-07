@@ -42,7 +42,6 @@ export const PaymentInfo = ({state, reset}) => {
             const {data: {data: {payment}}} = await makePurchase(
                 token,
                 state.userEmail,
-                state.serviceId,
                 state.staffId,
                 state.fromTime,
                 {
@@ -50,13 +49,14 @@ export const PaymentInfo = ({state, reset}) => {
                     email: state.userEmail,
                     phone_number: state.userPhone,
                 },
+                state.serviceId,
                 {
                     user_phone: state.userPhone,
                     user_email: state.userEmail,
                     user_first_name: state.userFirstName,
                     user_last_name: state.userLastName
                 });
-            await validateAndGo(payment);
+            // await validateAndGo(payment);
             setSwalProps({
                 show: true,
                 title: 'Successful!',
@@ -90,8 +90,18 @@ export const PaymentInfo = ({state, reset}) => {
                 <div className={'py-2 border-b w-full border-gray-900 mb-[16px]'}>
                     <div className={'text-[14px] font-bold'}>Appointment Details</div>
                 </div>
-                <div className={'flex justify-between border-b border-gray-900 pb-[14px] font-ptSerif text-[14px]'}>
-                    <div>Wrinkle Consultation</div>
+                {state.newOrOld === 'old' ? <>
+                    <div className={'flex justify-between border-b text-gray-600 border-gray-700 pb-[14px] font-ptSerif text-[14px]'}>
+                        <div>Anti wrinkle</div>
+                        <div>$425</div>
+                    </div>
+                    <div className={'flex justify-between border-b text-gray-600  border-gray-900 py-[14px] font-ptSerif text-[14px]'}>
+                        <div>Bio remodelling</div>
+                        <div>$649</div>
+                    </div>
+                </> : <></>}
+                <div className={'flex justify-between border-b font-bold border-gray-900 py-[14px] font-ptSerif text-[14px]'}>
+                    <div>You pay now</div>
                     <div>$0</div>
                 </div>
             </div>

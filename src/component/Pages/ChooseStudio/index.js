@@ -9,7 +9,7 @@ import {Spinner} from "../../Atoms/Spinner";
 import Marker from "../../../assets/images/marker.png";
 
 const AnyReactComponent = () => <img className={'w-6 h-9'} src={Marker} alt={'Marker'} />;
-export const ChooseStudio = ({setSteps, handleState, state}) => {
+export const ChooseStudio = ({handleState, state}) => {
     const [loading, setLoading] = useState(true);
     const [locations, setLocations] = useState([]);
 
@@ -33,12 +33,10 @@ export const ChooseStudio = ({setSteps, handleState, state}) => {
         })()
     }, []);
 
-    console.log(locations);
-
     const handleStoreClick = (name, value, place) => {
         handleState(name, value);
         handleState('studioLocation', place);
-        setSteps(1);
+        window.location.href = '#email-phone'
     }
 
     const renderLocation = () => {

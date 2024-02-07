@@ -4,7 +4,7 @@ import {Spinner} from "../../Atoms/Spinner";
 import {getServices} from "../../../services/booking";
 import ArrowRight from '../../../assets/icon/arrow-right.svg';
 
-export const HowCanWeHelp  = ({setSteps, handleState, state}) => {
+export const HowCanWeHelp  = ({handleState, state}) => {
     const [loading, setLoading] = useState(true);
     const [services, setServices] = useState([]);
 
@@ -29,7 +29,8 @@ export const HowCanWeHelp  = ({setSteps, handleState, state}) => {
             <div key={index}
                  onClick={() => {
                      handleState('serviceId', item.id);
-                     setSteps(4)
+                     handleState('newOrOld', item.name === 'New Patient Consultation' ? 'new' : 'old');
+                     window.location.href = '#consultation';
                  }}
                  className={'bg-[#FCF7F1] cursor-pointer flex justify-between items-center px-[14px] pt-[16px] pb-[14px] mb-[19px]'}>
                 <div>

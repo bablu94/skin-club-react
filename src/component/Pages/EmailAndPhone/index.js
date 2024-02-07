@@ -9,7 +9,7 @@ import SweetAlert2 from "react-sweetalert2";
 import {Spinner} from "../../Atoms/Spinner";
 import PhoneInput from 'react-phone-number-input'
 
-export const EmailAndPhone = ({setSteps, handleState, state}) => {
+export const EmailAndPhone = ({handleState, state}) => {
     const [swalProps, setSwalProps] = useState({});
     const [loading, setLoading] = useState(false);
     const [userEmailError, setUserEmailError] = useState(false);
@@ -63,11 +63,10 @@ export const EmailAndPhone = ({setSteps, handleState, state}) => {
             setLoading(true);
             try {
                 const {data: {data}} = await login(state.userPhone, state.userEmail);
-                console.log(data);
             } catch (err) {
                 console.log(err);
             }
-            setSteps(2);
+            window.location.href = '#validation'
         }
         setLoading(false);
     }

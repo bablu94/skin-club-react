@@ -6,7 +6,7 @@ import {verifyOTP} from "../../../services/booking";
 import SweetAlert2 from "react-sweetalert2";
 import {Spinner} from "../../Atoms/Spinner";
 
-export const VerificationCode = ({setSteps, handleState, state}) => {
+export const VerificationCode = ({handleState, state}) => {
 
     const [loading, setLoading] = useState(false);
     const [swalProps, setSwalProps] = useState({});
@@ -28,7 +28,7 @@ export const VerificationCode = ({setSteps, handleState, state}) => {
                 if (data && data.hasOwnProperty('token')) {
                     localStorage.setItem('auth_token', data.token);
                 }
-                setSteps(3);
+                window.location.href = '#how-help'
             } catch (err) {
                 setSwalProps({
                     show: true,
@@ -68,7 +68,8 @@ export const VerificationCode = ({setSteps, handleState, state}) => {
                     {loading ? <Spinner color={'white'} /> : 'VERIFY'}
                 </Button>
                 <div className={'text-[12px] mt-[24px]'}>OR</div>
-                <div onClick={() => {setSteps(3)}} className={'underline cursor-pointer text-[12px] mt-[24px] mb'}>Continue as a Guest</div>
+                <div onClick={() => {
+                    window.location.href = '#how-help'}} className={'underline cursor-pointer text-[12px] mt-[24px] mb'}>Continue as a Guest</div>
             </div>
         </div>
         <div className={'verificationBanner'} />
